@@ -26,4 +26,12 @@ line={}
 line['type']='example'
 line['content']='examples/01-1.json'
 data['tips'].append(line)
-json.dump(data,open('stages/'+stage+'.json','w'))
+line={}
+line['type']='example'
+line['content']='examples/01-2.json'
+data['tips'].append(line)
+line={}
+line['type']='example'
+line['content']='examples/01-3.json'
+data['tips'].append(line)
+json.dump(data,open('stages/'+stage+'.json','w'),sort_keys=True)

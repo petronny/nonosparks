@@ -1,10 +1,10 @@
 import json
-example='01-3'
+example='04'
 data={}
-data['width']=5
+data['width']=3
 data['height']=1
 data['hints']={}
-data['hints']['vertical']=['2 2']
+data['hints']['vertical']=['3']
 data['answer']=[]
-data['answer'].append([1,1,0,1,1])
+data['answer'].append([1,1,1])
 json.dump(data,open('examples/'+example+'.json','w'))
