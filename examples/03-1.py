@@ -7,4 +7,4 @@ data['hints']={}
 data['hints']['vertical']=['4']
 data['answer']=[]
 data['answer'].append([0,0,0,0,0])
-json.dump(data,open('examples/'+example+'.json','w'))
+json.dump(data,open('examples/'+example+'.json','w'),sort_keys=True)
