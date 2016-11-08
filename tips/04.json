@@ -1,0 +1,1 @@
+{"tips": [{"content": "Each number shows how long a line segment of filled squares in the current row or column there should be.", "type": "text"}, {"content": "examples/04.json", "type": "example"}, {"content": "Fill all squares as shown by the numbers.", "type": "text"}]}
