@@ -6,7 +6,7 @@ dependencies {
 
 jar {
         manifest {
-                attributes 'Main-Class': 'nonosparks.Main'
+                attributes 'Main-Class': 'main.java.nonosparks.Main'
         }
         from {
                 configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
