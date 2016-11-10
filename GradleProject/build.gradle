@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+jar {
+        manifest {
+                attributes 'Main-Class': 'nonosparks.Main'
+        }
+        from {
+                configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+}
