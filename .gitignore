@@ -1,2 +1,4 @@
-.gradle/*
-nonosparks/build/*
+.gradle/
+bin/
+build/
+nonosparks.jar
