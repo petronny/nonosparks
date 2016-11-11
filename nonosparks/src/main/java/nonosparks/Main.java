@@ -20,14 +20,10 @@ public class Main {
         BufferedReader reader = null;
         String laststr = "";
         try {
-            // System.out.println("以行为单位读取文件内容，一次读一整行：");
             reader = new BufferedReader(new FileReader(file));
             String tempString = null;
             int line = 1;
-            // 一次读入一行，直到读入null为文件结束
             while ((tempString = reader.readLine()) != null) {
-                // 显示行号
-                // System.out.println("line"+ line + ": " + tempString);
                 laststr = laststr + tempString;
                 line++;
             }
@@ -54,18 +50,29 @@ public class Main {
         out.close();
     }
 
-    public static void ParseJson(String jsonString) throws JSONException,ParseException {
+    public static void ParseJson(String jsonString) throws JSONException,
+            ParseException {
 
         JSONObject jo = new JSONObject(jsonString);
         JSONObject jo1 = new JSONObject(jo.getString("hints"));
+        JSONArray ja1 = jo1.getJSONArray("horizontal");
+        JSONArray ja2 = jo1.getJSONArray("vertical");
 
-        System.out.println("\n将Json数据解析为：");
+        System.out.println("\nJson Data：");
         System.out.println("\nname: " + jo.getString("name"));
         System.out.println("\nwidth: " + jo.getInt("width"));
         System.out.println("\nheight: " + jo.getInt("height"));
         System.out.println("\nanswer: " + jo.getString("answer"));
-        System.out.println("\nhorizontal: " + jo1.getString("horizontal"));
-        System.out.println("\nvertical: " + jo1.getString("vertical"));
+        System.out.println("\nhorizontal: ");
+        for (int i = 0; i < ja1.length(); i++) {
+            System.out.println(ja1.getString(i));
+        }
+        ;
+        System.out.println("\nvertical: ");
+        for (int j = 0; j < ja2.length(); j++) {
+            System.out.println(ja2.getString(j));
+        }
+        ;
         if (jo.has("tips")) {
             System.out.println("\ntips: " + jo.getString("tips"));
         }
@@ -73,6 +80,6 @@ public class Main {
 
     public static void main(String[] args) throws JSONException, ParseException {
 
-        ParseJson(ReadFile("D:/Downloads/nonosparks/stages/10.json"));
+        ParseJson(ReadFile("stages/10.json"));
     }
 }

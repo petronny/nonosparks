@@ -2,7 +2,7 @@ package main.java.nonosparks;
 
 import java.util.List;
 
-public class stages {
+public class Stages {
     public String answer;
     public int height;
     public int width;
