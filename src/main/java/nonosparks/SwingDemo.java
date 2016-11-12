@@ -84,7 +84,7 @@ public class SwingDemo extends JFrame {
                 yfinal = e.getY();
                 String s = "Mouse dragged from " + xinit + ',' + yinit + " to "
                         + xfinal + ',' + yfinal + ".\n";
-                if(xfinal!=xinit && yfinal!=yinit){
+                if((xfinal!=xinit||yfinal!=yinit)){
                 text.append(s);
                 Panel.setBackground(Color.BLUE);
                 Panel.setBounds(Math.min(xinit, xfinal), Math.min(yinit, yfinal), Math.abs(xfinal
