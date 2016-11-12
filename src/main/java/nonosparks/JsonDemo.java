@@ -62,7 +62,7 @@ public class JsonDemo {
         JSONArray ja1 = jo1.getJSONArray("horizontal");
         JSONArray ja2 = jo1.getJSONArray("vertical");
 
-        System.out.println("\nJson Data£º");
+        System.out.println("\nJson Data: ");
         System.out.println("\nname: " + jo.getString("name"));
         System.out.println("\nwidth: " + jo.getInt("width"));
         System.out.println("\nheight: " + jo.getInt("height"));
