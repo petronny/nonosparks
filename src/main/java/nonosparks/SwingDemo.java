@@ -13,10 +13,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Rectangle2D;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class SwingDemo extends JFrame {
     private static final long serialVersionUID = 1L;
-    private static int size = 500;
+    private static int size = 600;
     private JTextArea text = new JTextArea();
 
     public SwingDemo() {
@@ -31,21 +33,70 @@ public class SwingDemo extends JFrame {
         JPanel contentPanel = new JPanel();
         JPanel Panel = new JPanel();
         contentPanel.setLayout(null);
-        JButton button = new JButton("Double");
-        button.addActionListener(new ActionListener() {
+        JButton button1 = new JButton("Double");
+        JButton button2 = new JButton("     Change");
+        java.awt.Image img = null;
+        
+
+        String path = "images/301.png";
+        java.net.URL url = SwingDemo.class.getResource("/" + path);
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String path = "images/333.png";
+                java.net.URL url = SwingDemo.class.getResource("/" + path);
+                java.awt.Image img2 = null;
+                try
+
+                {
+
+                    InputStream input = url.openStream();
+
+                    img2 = javax.imageio.ImageIO.read(input);
+                    button2.setIcon(new ImageIcon(img2));
+
+                }
+
+                catch(IOException e2) {
+
+                    e2.printStackTrace();
+
+                }
+            }
+        });
+        try
+
+        {
+
+            InputStream input = url.openStream();
+
+            img = javax.imageio.ImageIO.read(input);
+
+        }
+
+        catch(IOException e) {
+
+            e.printStackTrace();
+
+        }
+        button2.setIcon(new ImageIcon(img));
+        button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 size = size * 2;
                 setSize(size, size);
                 pane.setBounds(0, size / 5 * 4, size, size / 9);
-                button.setBounds(0, 0, size, size / 10);
+                button1.setBounds(0, 0, size, size / 10);
+                button2.setBounds(0, size / 5 * 2, size, size / 5);
             }
         });
-        button.setBounds(0, 0, size, size / 10);
-        contentPanel.add(button);
+        button1.setBounds(0, 0, size, size / 10);
+        button2.setBounds(0, size / 5 * 2, size, size / 5);
+        contentPanel.add(button1);
+        contentPanel.add(button2);
         pane.setBounds(0, size / 5 * 4, size, size / 9);
         contentPanel.add(pane);
-        class myMouseListener implements MouseInputListener {           
+        class myMouseListener implements MouseInputListener {
             int xinit, xfinal, x0;
             int yinit, yfinal, y0;
 
@@ -84,12 +135,13 @@ public class SwingDemo extends JFrame {
                 yfinal = e.getY();
                 String s = "Mouse dragged from " + xinit + ',' + yinit + " to "
                         + xfinal + ',' + yfinal + ".\n";
-                if((xfinal!=xinit||yfinal!=yinit)){
-                text.append(s);
-                Panel.setBackground(Color.BLUE);
-                Panel.setBounds(Math.min(xinit, xfinal), Math.min(yinit, yfinal), Math.abs(xfinal
-                        - xinit), Math.abs(yfinal - yinit));
-                Panel.setVisible(true);
+                if ((xfinal != xinit || yfinal != yinit)) {
+                    text.append(s);
+                    Panel.setBackground(Color.BLUE);
+                    Panel.setBounds(Math.min(xinit, xfinal),
+                            Math.min(yinit, yfinal), Math.abs(xfinal - xinit),
+                            Math.abs(yfinal - yinit));
+                    Panel.setVisible(true);
                 }
             }
 
