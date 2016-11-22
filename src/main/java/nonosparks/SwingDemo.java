@@ -20,12 +20,16 @@ public class SwingDemo extends JFrame {
     private static final long serialVersionUID = 1L;
     private static int size = 600;
     private JTextArea text = new JTextArea();
-
+    private int x, y;
     public SwingDemo() {
         super();
         initUI();
     }
-
+    public void paint(Graphics g) {
+        g.setColor(Color.blue);
+        g.drawLine(100, 100, 200, 200);
+        g.fillRect(200, 200, size/5, size/5);
+    }
     private void initUI() {
         JScrollPane pane = new JScrollPane(text);
         setTitle("Nonosparks");
@@ -162,7 +166,6 @@ public class SwingDemo extends JFrame {
         contentPanel.addMouseMotionListener(new myMouseListener());
         contentPanel.add(Panel);
         getContentPane().add(contentPanel);
-
         // mainwindow
         setResizable(false);
         setLocationRelativeTo(null);
