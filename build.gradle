@@ -8,13 +8,12 @@ sourceSets {
         resources {
             srcDirs = ['src/main/res']
             include '**/*.json'
-            include '**/*.png'
         }
     }
 }
 jar {
         manifest {
-                attributes 'Main-Class': 'main.java.nonosparks.SwingDemo'
+                attributes 'Main-Class': 'main.java.nonosparks.Main'
         }
         from {
                 configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }

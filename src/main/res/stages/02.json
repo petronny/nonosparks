@@ -1,1 +1,1 @@
-{"answer": [[0, 1, 0], [1, 0, 1], [0, 1, 0]], "height": 3, "hints": {"horizontal": ["1", "1 1", "1"], "vertical": ["1", "1 1", "1"]}, "name": "Nails", "tips": "tips/02.json", "width": 3}
+{"solution": [[0, 1, 0], [1, 0, 1], [0, 1, 0]], "height": 3, "name": "Nails", "tips": "tips/02.json", "width": 3}
