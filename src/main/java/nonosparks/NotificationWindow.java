@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public abstract class NotificationWindow extends JFrame {
-    static final int width = 600, height = 300;
+    static final int width = 800, height = 300;
     private NotificationWindow thisWindow = this;
     private String content, buttonContent;
 
@@ -27,7 +27,7 @@ public abstract class NotificationWindow extends JFrame {
                 // TODO Auto-generated method stub
                 callback();
                 thisWindow.setVisible(false);
-                thisWindow=null;
+                thisWindow = null;
             }
         });
         label.setText(content);
@@ -35,15 +35,15 @@ public abstract class NotificationWindow extends JFrame {
         label.setHorizontalAlignment(SwingConstants.CENTER);
         contentPane.add(label);
         contentPane.add(button);
-        contentPane.setLayout(new GridLayout(0,1));
+        contentPane.setLayout(new GridLayout(0, 1));
         return contentPane;
     };
 
     public NotificationWindow(String title, String content, String buttonContent) {
         System.gc();
         setTitle(title);
-        this.content=content;
-        this.buttonContent=buttonContent;
+        this.content = content;
+        this.buttonContent = buttonContent;
         setSize(width, height);
         setResizable(false);
         setLayout(null);
@@ -58,7 +58,7 @@ public abstract class NotificationWindow extends JFrame {
 
     public static void test() {
         NotificationWindow notificationWindow = new NotificationWindow("Test",
-                "Test!","Quit") {
+                "Test!", "Quit") {
             public void callback() {
                 System.exit(0);
             };

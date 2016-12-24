@@ -15,7 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.event.MouseInputListener;
 
 public class StageWindow extends JFrame {
-    private static final int cellSize = 40;
+    private static final int cellSize = 30;
     private Board board;
     JScrollPane scrollPane;
     int MaxColumnHintSize = 0, MaxRowHintSize = 0, stage = 0;
@@ -261,13 +261,13 @@ public class StageWindow extends JFrame {
                 content = "No name field in Json file";
                 break;
             case NO_HEIGHT:
-                content = "No height field in your Json file";
+                content = "No height field in Json file";
                 break;
             case NO_WIDTH:
-                content = "No width field in your Json file";
+                content = "No width field in Json file";
                 break;
             case NO_SOLUTION:
-                content = "No solution field in your Json file";
+                content = "No solution field in Json file";
                 break;
             case NO_ERROR:
                 break;
@@ -293,7 +293,7 @@ public class StageWindow extends JFrame {
                     Math.max(MaxColumnHintSize + board.height + 3, 8)
                             * cellSize);
             setContentPane(createContentPane());
-            setTitle("Stage "+stage);
+            setTitle("Stage " + stage);
             setLayout(null);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -16,7 +16,8 @@ import javax.swing.filechooser.FileFilter;
 
 public class StagesWindow extends JFrame {
     private final int width = 1000, height = 500;
-    private StagesWindow thisWindow=this;
+    private StagesWindow thisWindow = this;
+
     public JMenuBar createMenuBar() {
         JMenuBar menuBar;
 
@@ -25,19 +26,19 @@ public class StagesWindow extends JFrame {
 
         JButton button = new JButton("Load external stage");
         button.addActionListener(new ActionListener() {
-            
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setFileFilter(new FileFilter() {
-                    
+
                     @Override
                     public String getDescription() {
                         // TODO Auto-generated method stub
                         return "JSON Files";
                     }
-                    
+
                     @Override
                     public boolean accept(File file) {
                         // TODO Auto-generated method stub
@@ -47,9 +48,9 @@ public class StagesWindow extends JFrame {
 
                         String extension = Tools.getExtension(file);
                         if (extension != null) {
-                            if (extension.equals("json")) 
-                                    return true;
-                             else 
+                            if (extension.equals("json"))
+                                return true;
+                            else
                                 return false;
                         }
                         return false;
@@ -59,7 +60,7 @@ public class StagesWindow extends JFrame {
                 try {
                     new StageWindow(fileChooser.getSelectedFile().getPath());
                     thisWindow.setVisible(false);
-                    thisWindow=null;
+                    thisWindow = null;
                 } catch (Exception e1) {
                     // TODO Auto-generated catch block
                     ;
@@ -67,49 +68,49 @@ public class StagesWindow extends JFrame {
             }
         });
         menuBar.add(button);
-        button=new JButton("About");
+        button = new JButton("About");
         button.addActionListener(new ActionListener() {
-            
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 thisWindow.setVisible(false);
-                new NotificationWindow("About","Yeah~","Back") {
-                    
+                new NotificationWindow("About", "<html>Author : Jinghao Liu<br>Acknowledgment : Jingbei Li<br>Mail :Jinghao.Liu@supelec.fr</html>", "Back") {
+                   
                     @Override
                     public void callback() {
                         // TODO Auto-generated method stub
                         new StagesWindow();
                     }
                 };
-                thisWindow=null;
+                thisWindow = null;
             }
         });
         menuBar.add(button);
         return menuBar;
     }
-    
+
     public Container createContentPane() {
         JPanel contentPane = new JPanel();
         for (int i = 1; i < 25; i++) {
-                JButton button = new JButton("Stage " + i);
-                final int stage=i;
-                
-                button.addActionListener(new ActionListener() {
-                    
-                    @Override
-                    public void actionPerformed(ActionEvent arg0) {
-                        // TODO Auto-generated method stub
-                        try {
-                            new StageWindow(stage);
-                            thisWindow.setVisible(false);
-                        } catch (Exception e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
+            JButton button = new JButton("Stage " + i);
+            final int stage = i;
+
+            button.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent arg0) {
+                    // TODO Auto-generated method stub
+                    try {
+                        new StageWindow(stage);
+                        thisWindow.setVisible(false);
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
-                });
-                contentPane.add(button);
+                }
+            });
+            contentPane.add(button);
 
         }
         contentPane.setSize(width, height);
@@ -120,10 +121,10 @@ public class StagesWindow extends JFrame {
         System.gc();
         setJMenuBar(createMenuBar());
         setSize(width, height);
-        setTitle("NoNoSparks!");
+        setTitle(" NoNoSparks!");
         setLocationRelativeTo(null);
         setContentPane(createContentPane());
-        setLayout(new GridLayout(5,5));
+        setLayout(new GridLayout(5, 5));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setVisible(true);
